@@ -1,18 +1,40 @@
+:root {
+    --ink: #1b2a3a;
+    --paper: #fbf7f0;
+    --accent: #ff6b35;
+    --accent-dark: #d9531f;
+    --teal: #1f6f5c;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f6f8;
-    color: #222;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    background-color: var(--paper);
+    /* subtle grid, like a city map */
+    background-image:
+        linear-gradient(rgba(27, 42, 58, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(27, 42, 58, 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+    color: var(--ink);
     margin: 0;
 }
 
 header {
-    background: #1f6f5c;
-    color: #fff;
-    padding: 1.2rem 2rem;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 1.5rem 2rem;
+    border-bottom: 6px solid var(--accent);
 }
 
 header h1 {
     margin: 0 0 0.4rem;
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+header p {
+    margin: 0;
+    opacity: 0.85;
 }
 
 main {
@@ -26,47 +48,85 @@ form {
     gap: 0.8rem;
     align-items: center;
     background: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 1.2rem;
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    box-shadow: 5px 5px 0 var(--ink);
+}
+
+label {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
 }
 
 input[type="number"] {
     width: 6rem;
-    padding: 0.4rem;
-    border: 1px solid #bbb;
-    border-radius: 4px;
+    padding: 0.45rem;
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+    font-size: 1rem;
+    background: var(--paper);
+}
+
+input[type="number"]:focus {
+    outline: 3px solid var(--accent);
+    outline-offset: 1px;
 }
 
 button {
-    background: #1f6f5c;
+    background: var(--accent);
     color: #fff;
-    border: none;
-    padding: 0.5rem 1.2rem;
-    border-radius: 4px;
+    border: 2px solid var(--ink);
+    padding: 0.5rem 1.3rem;
+    border-radius: 6px;
+    font-weight: bold;
     cursor: pointer;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: transform 0.1s, box-shadow 0.1s;
 }
 
 button:hover {
-    background: #16503f;
+    background: var(--accent-dark);
+}
+
+button:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
 }
 
 .error {
-    color: #b00020;
-    background: #fde8ea;
-    padding: 0.6rem 1rem;
+    color: #8a1c1c;
+    background: #ffe3dc;
+    border-left: 6px solid #c0392b;
+    padding: 0.7rem 1rem;
     border-radius: 4px;
+    margin-top: 1.2rem;
 }
 
 .result {
-    margin-top: 1.5rem;
+    margin-top: 1.8rem;
     background: #fff;
-    padding: 1rem;
-    border-radius: 8px;
+    padding: 1rem 1.2rem 1.2rem;
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    box-shadow: 5px 5px 0 var(--teal);
     text-align: center;
+}
+
+.result strong {
+    color: var(--accent-dark);
 }
 
 .result img {
     max-width: 100%;
     height: auto;
+    border-radius: 6px;
+}
+
+@media (max-width: 600px) {
+    form {
+        flex-wrap: wrap;
+    }
 }
